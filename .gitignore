@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Build / packaging artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+~$*
+
+# Raw and intermediate data
+data/raw/*
+!data/raw/README.md
+!data/raw/.gitkeep
+
+data/interim/*
+!data/interim/README.md
+!data/interim/.gitkeep
+
+# Local model artifacts
+models/*
+!models/README.md
+!models/.gitkeep
+
+# Optional local scratch files
+scratch/
+tmp/
+temp/
