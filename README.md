@@ -47,7 +47,54 @@ The processed summary dataset is available at:
 ### Terminology note
 
 Strictly speaking, **flood risk** includes not only the probability or intensity of flooding, but also **exposure** and **vulnerability**. The initial modeling stage of this repository therefore focuses primarily on **flood susceptibility / flood occurrence probability**. Exposure and vulnerability layers can be integrated later if a complete risk assessment is required.
+## Implemented Methodology
 
+The historical inundation analysis follows a reproducible geospatial workflow:
+
+1. Download Bangladesh-scale fractional inundation GeoTIFFs from the Bangladesh Inundation History dataset.
+2. Use a validated Sylhet Division boundary in EPSG:4326.
+3. Clip each national raster to the Sylhet Division boundary.
+4. Preserve raster NoData values and calculate statistics using valid pixels only.
+5. Process 975 Sylhet-specific inundation rasters covering 2001–2022.
+6. Calculate date-level summary metrics, including mean, median, maximum inundation and inundation-threshold percentages.
+7. Aggregate the observations by year to estimate annual mean fractional inundation.
+8. Exclude 2001 from the annual trend test because the available record begins in September 2001.
+9. Evaluate the 2002–2022 trend using linear regression and Kendall's tau test.
+
+The complete processed time series is stored in:
+
+`data/processed/sylhet_flood_timeseries.csv` 
+
+## Reproducibility
+
+The historical inundation workflow is implemented with version-controlled Python scripts in this repository.
+
+Key scripts:
+
+- `src/data/download_sylhet_boundary.py` — obtains and validates the Sylhet Division boundary.
+- `src/data/process_flood_history.py` — discovers, downloads, clips, and processes the historical inundation rasters.
+
+Python dependencies are listed in `requirements.txt`.
+
+Generated summary data are stored in:
+
+`data/processed/sylhet_flood_timeseries.csv`
+
+Research figures are stored in:
+
+`results/figures/`
+
+Large source and intermediate raster collections are not committed to GitHub. They can be regenerated from the documented public data source using the processing workflow.
+
+## Limitations
+
+The current results should be interpreted as an analysis of modeled fractional inundation rather than a complete flood-risk assessment.
+
+The Bangladesh Inundation History product is a model-derived dataset and therefore inherits uncertainty from its source observations and modeling procedure. The present trend analysis summarizes inundation over the entire Sylhet Division and does not yet quantify local spatial variability, flood depth, economic exposure, population exposure, or vulnerability.
+
+The 2001 record is incomplete because the available time series begins in September; therefore, 2001 is excluded from the 2002–2022 annual trend test.
+
+The observed decreasing trend does not by itself demonstrate that flood hazard or flood risk has decreased. Additional hydroclimatic, terrain, land-cover, exposure, and vulnerability variables are required for a broader risk assessment.
 ## Research Questions
 
 1. Which geospatial, terrain, hydrological, and rainfall-related variables contribute most strongly to flood susceptibility prediction?
