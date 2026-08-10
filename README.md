@@ -2,8 +2,17 @@
 
 A reproducible geospatial and machine-learning workflow for flood susceptibility analysis and flood-risk-oriented mapping using terrain, hydrological, environmental, and rainfall-related variables.
 
-> **Project status:** Under active development. Quantitative results will be reported only after the corresponding experiments have been executed and validated.
+> **Project status:** Active research prototype. Historical inundation processing for Sylhet Division has been completed using 975 observations spanning 2001–2022. A reproducible time-series dataset, spatial outputs, and preliminary trend analysis are now available in this repository.
+## Key Results
 
+- Processed **975 historical inundation rasters** covering **2001–2022**.
+- Generated a reproducible Sylhet Division flood-inundation time series.
+- Annual mean inundation for **2002–2022** shows a statistically significant decreasing trend.
+- Linear trend: **slope = -0.0031/year**, **R² = 0.285**, **p = 0.013**.
+- Kendall trend test: **τ = -0.324**, **p = 0.042**.
+- The result indicates a declining trend in modeled fractional inundation over the study period; it should not be interpreted as a complete reduction in flood risk because exposure and vulnerability are not included.
+
+![Annual Sylhet inundation trend](results/figures/sylhet_annual_inundation_trend_2002_2022.png)
 ## Project Overview
 
 Flooding is a major environmental hazard that can affect communities, infrastructure, agriculture, and ecosystems. This project develops a transparent and reproducible workflow for identifying flood-prone areas from spatial data and data-driven models.
