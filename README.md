@@ -27,7 +27,23 @@ The technical workflow is designed to combine:
 - Machine-learning classification
 - Model evaluation and interpretation
 - Spatial prediction and mapping
+## Data Source
 
+Historical inundation data are derived from the **Bangladesh Inundation History** dataset published through CyVerse Data Commons.
+
+- **Dataset:** Bangladesh Inundation History
+- **DOI:** 10.25739/2edm-jh03
+- **Spatial resolution:** approximately 500 m
+- **Temporal resolution:** approximately 8-day intervals
+- **Coverage:** 2001–2022
+- **Study area used here:** Sylhet Division, Bangladesh
+- **Processed observations:** 975 inundation rasters
+
+The national-scale inundation rasters were downloaded programmatically and clipped to the validated Sylhet Division boundary. The resulting Sylhet-specific rasters were used to construct the historical inundation time series analyzed in this repository.
+
+The processed summary dataset is available at:
+
+`data/processed/sylhet_flood_timeseries.csv`
 ### Terminology note
 
 Strictly speaking, **flood risk** includes not only the probability or intensity of flooding, but also **exposure** and **vulnerability**. The initial modeling stage of this repository therefore focuses primarily on **flood susceptibility / flood occurrence probability**. Exposure and vulnerability layers can be integrated later if a complete risk assessment is required.
